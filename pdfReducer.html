@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PdfEditor</title>
+    <link rel="stylesheet" href="pdfViewer_style.css">
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+        }
+        #pdfViewer input {
+            padding:8vh 28vw;
+        }
+        #pdfViewer button {
+            position: unset;
+            margin: 1rem 0;
+        }
+
+        #pdfViewer #scale{
+            position: unset;
+            padding: 0.5vh 3vw;
+            outline: none;
+        }
+        #pdfViewer label {
+            position: unset;
+            margin: 1rem;
+            color: rgb(6, 131, 255);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        header{
+            height: 10vh;
+        }
+        #main{
+            height: 78vh;
+        }
+        footer{
+            height: 5vh;
+        }
+    </style>
+    <script type="module">
+        const API_KEY = "evi95981@gmail.com_dByJZ9cs9knVihlTeTeGS6f0JJmmH7XBrUh8FvlwPibGRruvUcPw96raOjuFF7Kn";
+
+        document.getElementById("PdfViewerButton").addEventListener("click",async ()=>{
+            const fileInput = document.getElementById("pdf");
+            const status = document.getElementById("status");
+
+            if (!fileInput.files.length) {
+                alert("Please select a PDF file.");
+                return;
+            }
+
+            const file = fileInput.files[0];
+
+            status.innerText = "Uploading...";
+
+            try {
+                // Step 1: Upload file
+                let formData = new FormData();
+                formData.append("file", file);
+
+                let uploadRes = await fetch("https://api.pdf.co/v1/file/upload", {
+                    method: "POST",
+                    headers: {
+                        "x-api-key": API_KEY
+                    },
+                    body: formData
+                });
+
+                let uploadData = await uploadRes.json();
+
+                if (uploadData.error) {
+                    status.innerText = "Upload error: " + uploadData.message;
+                    return;
+                }
+
+                let fileUrl = uploadData.url;
+
+                status.innerText = "Compressing...";
+
+                // Step 2: Compress
+                let compressRes = await fetch("https://api.pdf.co/v1/pdf/optimize", {
+                    method: "POST",
+                    headers: {
+                        "x-api-key": API_KEY,
+                        "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                        url: fileUrl,
+                        async: false,
+                        name: "compressed.pdf"
+                    })
+                });
+
+                let compressData = await compressRes.json();
+
+                if (compressData.error) {
+                    status.innerText = "Compression error: " + compressData.message;
+                    return;
+                }
+
+                let resultUrl = compressData.url;
+
+                status.innerHTML = `Done! <a href="${resultUrl}" target="_blank">Download Compressed PDF</a>`;
+            } catch (err) {
+                status.innerText = "Error: " + err.message;
+            }
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h2>Online PDFFusion</h2>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./pdfEditor.html">PDF Editor</a></li>
+            <li><a href="./pdfViewer.html">PDF Viewer</a></li>
+            <li><a href="./pdfReducer.html">PDF Reducer</a></li>
+        </ul>
+    </header>
+    <div id="main">
+        <h1>Welcome to Pdf Reducer</h1>
+        <p>Reduce the size of your PDF files with our easy-to-use tool. No need for additional software!</p>
+
+        <div id="pdfViewer">
+            <input type="file" name="pdf" id="pdf">
+            <label id="status">File Status</label>
+            <!-- <label id="status">Scale (e.g. 0.5 = 50%):</label> -->
+            <!-- <input type="number" id="scale" value="0.5" step="0.1" max="1" min="0.1"> -->
+            <button id="PdfViewerButton">Resize PDF</button>
+        </div>
+        <!-- <h2>PDF Resize Tool</h2> -->
+    </div>
+    <footer>
+        <p>Copyright &copy; PDFFusion. All rights reserved.</p>
+    </footer>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script> -->
+</body>
+</html>

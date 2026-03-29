@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui;
+}
+
+header{
+    background-color: #00b7ff;
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+
+header h2{
+    
+    font-size: 2.2rem;
+    font-family: cursive;
+}
+
+header ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+}
+
+header ul li a{
+    margin-left: 0.8rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+#main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* height: 84vh; */
+}
+
+#main h1{
+    margin-top: 2.5rem;
+    font-size: 3rem;
+    color: #00b7ff;
+    font-family: cursive;
+    font-weight: 800;
+    text-shadow: #7adcff 4px 4px 4px;
+}
+
+#main p{
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    color: #333;
+    width: 60%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+#pdfViewer{
+    /* width: 80%; */
+    /* height: 60vh; */
+    /* border: 3px solid #00b7ff; */
+    /* margin-top: 2rem; */
+    /* background: #7adcff54; */
+    /* border-radius: 10px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#pdfViewer button{
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    color: white;
+    background-color: #00b7ff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+    position: relative;
+    top: -4rem;
+    left: 0px;
+    border: 2px solid #00b7ff;
+
+}
+
+#pdfViewer button:hover{
+    background-color: white;
+    color: #00b7ff;
+    border: 2px solid #00b7ff;
+}
+
+#pdfViewer input{
+    padding: 25vh 28vw;
+    font-size: 1.2rem;
+    border: 2px solid #00b7ff;
+    background: #7adcff54;
+    border-radius: 5px;
+}
+
+footer{
+    background-color: #00b7ff;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    font-size:1.5rem;
+    height: 6vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+iframe{
+    width: 99.7%;
+    height: 90vh;
+    background: #7adcff54;
+}
+
+#fullScreenButton{
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    background: #00b7ff;
+    color: white;
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 10px;
+    border: 1px solid #00b7ff;
+    cursor: pointer;
+}

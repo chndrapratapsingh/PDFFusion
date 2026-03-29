@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: system-ui;
+}
+
+header{
+    background-color: #00b7ff;
+    color: white;
+    padding: 5px 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h2{
+    
+    font-size: 2.2rem;
+    font-family: cursive;
+}
+
+header ul{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    list-style: none;
+}
+
+header ul li a{
+    margin-left: 0.8rem;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+#main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 75vh;
+}
+
+#main h1{
+    margin-top: 2.5rem;
+    font-size: 3rem;
+    color: #00b7ff;
+    font-family: cursive;
+    font-weight: 800;
+    text-shadow: #7adcff 4px 4px 4px;
+}
+
+#main p{
+    margin-top: 1.5rem;
+    font-size: 1.2rem;
+    color: #333;
+    width: 60%;
+    text-align: center;
+}
+
+#main .features{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 10vh;
+    width: 80%;
+}
+
+#main .features .feature{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 30%;
+    border: 5px solid #00b7ff;
+    border-radius: 10px;
+    padding-top: 5vh;
+}
+
+#main .features .feature h2{
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #00b7ff;
+    margin-top: -5rem;
+}
+
+#main .features .feature hr{
+    width: 90%;
+    margin: 1rem 0;
+    border: 1px solid #00b7ff;
+    margin: 0.4rem 0 0 0rem;
+}
+
+#main .features .feature p{
+    font-size: 1rem;
+    color: #333;
+    width: 90%;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+#main .features .feature img{
+    width: 20%;
+    height: auto;
+    margin-bottom: 1rem;
+    position: relative;
+    top: -37%;
+    left: 0;
+    background: white;
+    padding: 0.5rem;
+    border-radius: 50%;
+    border: 2px solid #00b7ff;
+}
+
+#main .features .feature a{
+    text-decoration: none;
+    color: white;
+    background-color: #00b7ff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+#main .features .feature a:hover{
+    background-color: #00a0e0;
+}
+
+#main .features .feature a:active{
+    background-color: #0080c0;
+}
+
+#main .features .feature a:focus{
+    background-color: #00b7ff;
+    outline: 2px solid #00b7ff;
+    outline-offset: 2px;
+}
+
+footer{
+    background-color: #00b7ff;
+    color: white;
+    padding: 1rem 0;
+    text-align: center;
+    margin-top: 9vh;
+    font-size:1.5rem;
+}

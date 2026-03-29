@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PdfEditor</title>
+    <link rel="stylesheet" href="pdfViewer_style.css">
+    <script src="js.js"></script>
+</head>
+<body>
+    <header>
+        <h2>Online PDFFusion</h2>
+        <ul>
+            <li><a href="./index.html">Home</a></li>
+            <li><a href="./pdfEditor.html">PDF Editor</a></li>
+            <li><a href="./pdfViewer.html">PDF Viewer</a></li>
+            <li><a href="./pdfReducer.html">PDF Reducer</a></li>
+        </ul>
+    </header>
+    <div id="main">
+        <h1>Welcome to Pdf Viewer</h1>
+        <p>View your PDF files with our easy-to-use viewer. No need for additional software!</p>
+
+        <div id="pdfViewer">
+            <input type="file" name="pdf" id="pdf">
+            <button onclick="PdfViewerFunction()" id="PdfViewer">Upload PDF</button>
+        </div>
+        
+    </div>
+    <footer>
+        <p>Copyright &copy; PDFFusion. All rights reserved.</p>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+</body>
+</html>
